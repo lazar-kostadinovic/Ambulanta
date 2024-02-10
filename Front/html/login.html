@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/stil.css">
+    <title>Web Klinika - Login</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <span class="clinic-name">Web Klinika</span>
+        </div>
+        <ul class="navbar-nav">
+            <li id="pocetna">Početna</li>
+            <li id="loginLink">Login</li>
+            <li id="registerLink">Register</li>
+            <li id="profileLink" style="display:none;">Profil</li>
+            <li id="logoutLink" style="display:none;">Logout</li>
+        </ul>
+    </nav>
+    
+    <div class="container" id="loginCont">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Šifra:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <div class="form-group">
+                <label for="role">Uloga:</label>
+                <select id="role" required>
+                    <option value="patient">Pacijent</option>
+                    <option value="doctor">Doktor</option>
+                    <option value="admin">Admin</option>
+                </select>
+            </div>
+
+            <button type="submit">Login</button>
+        </form>
+    </div>
+    <script src="../js/login.js"></script>
+</body>
+</html>

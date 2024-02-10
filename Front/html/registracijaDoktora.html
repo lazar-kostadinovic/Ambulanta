@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/stil.css">
+    <title>Registracija lekara</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <span class="clinic-name">Web Klinika</span>
+        </div>
+        <ul class="navbar-nav">
+            <li id="pocetna">Početna</li>
+            <li id="loginLink">Login</li>
+            <li id="registerLink">Register</li>
+            <li id="profileLink" style="display:none;">Profil</li>
+            <li id="logoutLink" style="display:none;">Logout</li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h2>Registrujte lekara</h2>
+        <form id="registerDoctorForm">
+            <label for="doctorName">Ime:</label>
+            <input type="text" id="doctorName" required>
+
+            <label for="doctorLastName">Prezime:</label>
+            <input type="text" id="doctorLastName" required>
+
+            <label for="doctorAddress">Adresa:</label>
+            <input type="text" id="doctorAddress" required>
+
+            <label for="doctorPhoneNumber">Broj telefona:</label>
+            <input type="tel" id="doctorPhoneNumber" required>
+
+            <label for="doctorEmail">Email:</label>
+            <input type="email" id="doctorEmail" required>
+
+            <label for="doctorSpecialization">Specijalizacija:</label>
+            <select id="doctorSpecialization" required></select>
+
+            <label for="doctorPassword">Šifra:</label>
+            <input type="password" id="doctorPassword" required>
+
+            <button type="submit">Registruj</button>
+        </form>
+    </div>
+    <script src="../js/main.js"></script>
+    <script src="../js/registracijaDoktora.js"></script>
+</body>
+</html>

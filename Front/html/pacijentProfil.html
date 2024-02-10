@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/stil.css">
+    <title>Web Klinika - Profil pacijenta</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <span class="clinic-name">Web Klinika</span>
+        </div>
+        <ul class="navbar-nav">
+            <li id="pocetnaLink" style="display:inline-block;">Početna</li>
+            <li id="loginLink" style="display:none;">Login</li>
+            <li id="registerLink" style="display:none;">Register</li>
+            <li id="profileLink" style="display:inline-block;">Profil</li>
+            <li id="logoutLink" style="display:inline-block;">Logout</li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <h2>Profil pacijenta</h2>
+        <p>Dobrodošli na Vaš profil!</p>
+        <p>Ime: <span id="patientName"></span></p>
+        <p>Email: <span id="patientEmail"></span></p>
+        <p>Adresa: <span id="patientAdress"></span></p>
+        <p>Broj Telefona: <span id="patientPhoneNumber"></span></p>
+
+        <button id="showUpdateFormBtn">Ažurirajte profil</button>
+    </div>
+
+    <div class="container" id="updateProfileForm" style="display:none;">
+        <form id="updateProfileForm">
+            <h2>Ažurirajte Vaš profil</h2>
+            <label for="newAdresa">Nova adresa:</label>
+            <input type="text" id="newAdresa" name="newAdresa">
+
+            <label for="newBrojTelefona">Novi broj telefona:</label>
+            <input type="text" id="newBrojTelefona" name="newBrojTelefona">
+
+            <label for="newEmail">Novi email:</label>
+            <input type="email" id="newEmail" name="newEmail">
+
+            <button type="submit" id="updateProfileBtn">Ažuriraj</button>
+        </form>
+    </div>
+
+    <div class="container">
+        <button id="previousAppointmentsListBtn">Vaši pregledi</button>
+        <div id="previousAppointmentsListContainer"></div>
+
+        <form id="updateAppointmentForm" style="display:none;">
+            <input type="hidden" id="updateAppointmentId" name="updateAppointmentId">
+            <label for="updateAppointmentDate">Novi datum i vreme:</label>
+            <input type="date" id="updateAppointmentDate" name="updateAppointmentDate" required>
+            <select id="newTimeSlotDropdown"></select>
+          
+            <label for="updateAppointmentOpis">Novi opis:</label>
+            <input type="text" id="updateAppointmentOpis" name="updateAppointmentOpis" required>
+          
+            <button type="submit" id="updateAppBtn">Ažuriraj</button>
+        </form>        
+    </div>
+    
+    <div class="container">
+        <button id="scheduleAppointmentBtn">Zakažite pregled</button>
+        <form id="scheduleAppointmentForm" style="display:none;" >  
+            <label for="specijalizacijaDropdown">Specijalizacija:</label>
+            <select id="specijalizacijaDropdown">
+                <option value="OpstaPraksa">OpstaPraksa</option>
+                <option value="Kardiolog">Kardiolog</option>
+                <option value="Dermatolog">Dermatolog</option>
+                <option value="Hirurg">Hirurg</option>
+                <option value="Ortoped">Ortoped</option>
+                <option value="Oftamolog">Oftamolog</option>
+                <option value="Pedijatar">Pedijatar</option>
+            </select>  
+            <label for="lekarSelect">Izaberite lekara:</label>
+            <select id="lekarSelect" name="lekarSelect" required></select>      
+
+            <label for="appointmentDate">Izaberite datum i vreme:</label>
+            <input type="date" id="appointmentDate" name="appointmentDate" required>
+            <select id="timeSlotDropdown"></select>
+
+            <label for="opis">Opis:</label>
+            <input type="text" id="opis" name="opis" required>
+
+            <button type="submit" id="scheduleBtn">Zakaži</button>
+        </form> 
+    </div>  
+
+    <div class="container">  
+        <button id="deleteProfileBtn">Obriši Profil</button>       
+    </div>
+
+    <script src="../js/pacijentProfil.js"></script>
+</body>
+</html>

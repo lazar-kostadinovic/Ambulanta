@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/stil.css">
+    <title>Web Klinika - Profil Administratora</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <span class="clinic-name">Web Klinika</span>
+        </div>
+        <ul class="navbar-nav">
+            <li id="pocetnaLink" style="display:inline-block;">Početna</li>
+            <li id="loginLink" style="display:none;">Login</li>
+            <li id="registerLink" style="display:none;">Register</li>
+            <li id="profileLink" style="display:inline-block;">Profil</li>
+            <li id="logoutLink" style="display:inline-block;">Logout</li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <h2>Profil Administratora</h2>
+        <p>Dobrodošli na vaš profil!</p>
+        <p>Ime: <span id="adminName"></span></p>
+        <p>Email: <span id="adminEmail"></span></p>
+        <p>Adresa: <span id="adminAdress"></span></p>
+        <p>Broj Telefona: <span id="adminPhoneNumber"></span></p>
+
+        <button id="showUpdateFormBtn">Ažurirajte profil</button>
+
+        <form id="updateProfileForm" style="display:none;">
+            <label for="newAdresa">Nova adresa:</label>
+            <input type="text" id="newAdresa" name="newAdresa" required>
+
+            <label for="newBrojTelefona">Novi broj telefona:</label>
+            <input type="text" id="newBrojTelefona" name="newBrojTelefona" required>
+
+            <label for="newEmail">Novi email:</label>
+            <input type="email" id="newEmail" name="newEmail" required>
+
+            <button type="submit">Ažuriraj</button>
+        </form>
+
+        <button id="viewPatientsBtn">Pacijenti</button>
+        <button id="viewDoctorsBtn">Lekari</button>
+        <button id="viewAppointmentsBtn">Pregledi</button>
+        <button id="registerDoctorBtn">Registracija Lekara</button>
+
+        <div id="patientListContainer"></div>
+        <div id="doctorListContainer"></div>
+        <div id="appointmentsListContainer"></div>
+    </div>
+
+    <script src="../js/adminProfil.js"></script>
+</body>
+</html>
