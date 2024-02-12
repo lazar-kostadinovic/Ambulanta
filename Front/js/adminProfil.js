@@ -124,6 +124,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const patientItem = document.createElement("li");
       patientItem.textContent = `${patient.ime} ${patient.prezime} - ${patient.email}`;
       patientList.appendChild(patientItem);
+      patientItem.style = "text-align: left;"
     });
 
     patientListContainer.appendChild(patientList);
@@ -162,6 +163,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const doctorItem = document.createElement("li");
       const specijalizacijaString = specijalizacijaMap[doctor.specijalizacija];
       doctorItem.textContent = `${doctor.ime} ${doctor.prezime} - ${specijalizacijaString}`;
+      doctorItem.style = "text-align: left;"
 
       const deleteButton = document.createElement("button");
       deleteButton.textContent = "Obriši";
@@ -212,9 +214,15 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   });
 
+  const itemsPerPage = 5;
+  let currentPage = 1;
+
   function displayAppointmentsList(appointments) {
     patientListContainer.innerHTML = "";
     doctorListContainer.innerHTML = "";
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+
     const appointmentsListContainer = document.getElementById(
       "appointmentsListContainer"
     );
@@ -226,25 +234,60 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     const appointmentsList = document.createElement("ul");
-    appointments.forEach((appointment) => {
+    const paginatedAppointments = appointments.slice(startIndex, endIndex);
+
+    paginatedAppointments.forEach((appointment) => {
       Promise.all([
         fetchDoctorName(toId(appointment.idDoktora)),
         fetchPatientName(toId(appointment.idPacijenta)),
       ])
         .then(([doctorName, patientName]) => {
           const appointmentItem = document.createElement("li");
-          appointmentItem.textContent = `Pacijent: ${patientName} / Doktor: ${doctorName} / Datum: ${convertDateFormat(
-            appointment.datum
-          )} Opis: ${appointment.opis}`;
+          appointmentItem.innerHTML = `
+            <div class="appointment-info">
+            <span class="patient">Pacijent: </span> 
+            <span class="patient-value">${patientName}</span>
+          
+            <span class="doctor">Doktor: </span>
+            <span class="doctor-value">${doctorName}</span>
+          
+            <span class="date">Datum: </span>
+            <span class="date-value">${convertDateFormat(appointment.datum)}</span>
+          
+            <span class="description">Opis: </span>
+            <span class="description-value">${appointment.opis}</span>
+            </div>
+          `;
           appointmentsList.appendChild(appointmentItem);
         })
         .catch((error) => {
           console.error("Error fetching doctor or patient name:", error);
         });
     });
-
     appointmentsListContainer.appendChild(appointmentsList);
+    addPaginationControls(appointments.length);
   }
+
+  function addPaginationControls(totalAppointments) {
+    const totalPages = Math.ceil(totalAppointments / itemsPerPage);
+
+    const paginationContainer = document.createElement("div");
+    paginationContainer.className = "pagination";
+
+    for (let i = 1; i <= totalPages; i++) {
+      const pageButton = document.createElement("button");
+      pageButton.textContent = i;
+      pageButton.addEventListener("click", function () {
+        currentPage = i;
+        viewAppointmentsBtn.click();
+      });
+
+      paginationContainer.appendChild(pageButton);
+    }
+
+    appointmentsListContainer.appendChild(paginationContainer);
+  }
+
   function fetchDoctorName(doctorId) {
     return fetch(`http://localhost:5154/Doktor/${doctorId}`)
       .then((response) => {
@@ -318,6 +361,4 @@ document.addEventListener("DOMContentLoaded", function () {
     const [month, day, year] = datePart.split("/");
     return `${day}/${month}/${year}, ${timePart}`;
   }
-
-
 });

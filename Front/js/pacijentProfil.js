@@ -82,6 +82,8 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   previousAppointmentsListBtn.addEventListener("click", function () {
+    document.getElementById("updateAppointmentForm").style.display = "none";
+    document.getElementById("updateProfileForm").style.display = "none";
     if (previousAppointmentsListContainer.innerHTML != "") {
       previousAppointmentsListContainer.innerHTML = "";
     } else {
@@ -291,6 +293,19 @@ document.addEventListener("DOMContentLoaded", function () {
       .then((response) => response.json())
       .then((appointment) => {
         document.getElementById("updateAppointmentId").value = appointmentId;
+        document.getElementById("updateAppointmentDate").value = appointment.datum.substring(0, 10);
+        document.getElementById("newTimeSlotDropdown").value = appointment.datum.substring(11, 16);
+
+        fetch(`http://localhost:5154/Pregled/availableTimeSlots/${doctorId}/${appointment.datum}`)
+        .then((response) => response.json())
+        .then((availableTimeSlots) => {
+          availableTimeSlotsUI(availableTimeSlots);
+        })
+        .catch((error) => {
+          console.error("Error fetching available time slots:", error);
+        });
+
+
         const updateAppointmentDate = document.getElementById(
           "updateAppointmentDate"
         );

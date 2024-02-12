@@ -76,3 +76,64 @@ label {
     margin-bottom: 5px;
 }
 
+.appointment-info {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.patient {
+    color: #000; 
+    font-weight: bold;
+}
+  
+.doctor {
+    color: #000;
+    font-weight: bold;
+}
+
+.date {
+    color: #000; 
+}
+
+.description {
+    color: #000; 
+}
+
+.patient-value {
+    color: #00548b; 
+}
+
+.doctor-value {
+    color: #00548b; 
+}
+
+.date-value {
+    color: #00548b; 
+}
+
+.description-value {
+    color: #00548b; 
+}  
+
+.pagination {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+.pagination button {
+    background-color: #3498db;
+    color: #fff;
+    border: 1px solid #3498db;
+    padding: 8px 12px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.pagination button:hover {
+    background-color: #2980b9;
+}

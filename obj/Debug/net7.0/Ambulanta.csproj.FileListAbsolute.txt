@@ -360,3 +360,4 @@ C:\Users\Anja\Downloads\Ambulanta 3\Ambulanta\Ambulanta\obj\Debug\net7.0\refint\
 C:\Users\Anja\Downloads\Ambulanta 3\Ambulanta\Ambulanta\obj\Debug\net7.0\Ambulanta.pdb
 C:\Users\Anja\Downloads\Ambulanta 3\Ambulanta\Ambulanta\obj\Debug\net7.0\Ambulanta.genruntimeconfig.cache
 C:\Users\Anja\Downloads\Ambulanta 3\Ambulanta\Ambulanta\obj\Debug\net7.0\ref\Ambulanta.dll
+C:\Users\Lazar\Desktop\Ambulanta\obj\Debug\net7.0\Ambulanta.sourcelink.json
