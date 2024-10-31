@@ -442,6 +442,10 @@ document.addEventListener("DOMContentLoaded", function () {
     window.location.href = "../html/pacijentProfil.html";
   });
 
+  pocetnaLink.addEventListener("click", function () {
+    window.location.href = "../html/index.html";
+  });
+
   logoutLink.addEventListener("click", function () {
     localStorage.removeItem("userRole");
     localStorage.removeItem("token");

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0MWQbwEiuCmNd532shANrzipJJxb3Spz9nldTPhlU6QdY3TAk2VLmhCKIfZIU8apXHNX7jLqU1kqrLWneOqblA==",
+  "dgSpecHash": "Mxi+nFB7ajGsVjGjytwxndZo4SUgnwWchmC9HeTWmx5bUq5lZpwtEi9uAy5VKN6223NdNyxRPHh1MYCOnswJPA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Lazar\\Desktop\\Ambulanta\\Ambulanta.csproj",
+  "projectFilePath": "C:\\Users\\Lazar\\Desktop\\Projekti\\Ambulanta\\Ambulanta.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lazar\\.nuget\\packages\\awssdk.core\\3.7.100.14\\awssdk.core.3.7.100.14.nupkg.sha512",
     "C:\\Users\\Lazar\\.nuget\\packages\\awssdk.securitytoken\\3.7.100.14\\awssdk.securitytoken.3.7.100.14.nupkg.sha512",
